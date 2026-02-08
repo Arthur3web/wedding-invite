@@ -1,0 +1,632 @@
+/* 
+   Все размеры в vw, база: 1080px = 100vw
+   Формула: значение_px / 1080 * 100 = значение_vw
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #002D22;
+    --secondary-color: #ffffff;
+    --input-color: #50645E;
+    --font-primary: 'Cormorant Garamond', serif;
+    --font-secondary: 'Cormorant Infant', serif;
+    --transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 1611.11vw; /* 17400 / 1080 * 100 */
+    background-image: url("images/background.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% auto;
+    overflow-x: hidden;
+    font-family: var(--font-primary);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Общие стили секций */
+
+.section-title {
+    letter-spacing: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.section-text {
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+/* Приветствие */
+.welcome {
+    background: transparent;
+    margin-top: 194.44vw; 
+    text-align: center;
+}
+
+.welcome-title {
+    font-family: var(--font-primary);
+    font-size: 8.52vw;
+    line-height: 11.11vw;
+    color: var(--secondary-color);
+    margin-bottom: 6.48vw;
+    width: 82.96vw;
+    height: 22.13vw;
+}
+
+.welcome-message {
+    width: 82.96vw;
+    height: 53.61vw;
+    display: flex;
+    flex-direction: column;
+    gap: 6.3vw;
+}
+
+.welcome-text {
+    font-family: var(--font-primary);
+    font-size: 5.19vw;
+    line-height: 6.3vw;
+    color: var(--secondary-color);
+}
+
+/* Таймер обратного отсчета */
+.countdown {
+    background: transparent;
+    margin-top: 90.09vw;
+}
+
+.countdown-title {
+    font-family: var(--font-primary);
+    font-size: 8.52vw;
+    line-height: 11.11vw;
+    color: var(--primary-color);
+    margin-bottom: 9.26vw;
+    width: 82.96vw;
+    height: 33.24vw;
+    text-align: center;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 2.41vw;
+}
+
+.time-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-unit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    border-radius: 1.85vw;
+    width: 18.98vw;
+    height: 9.72vw;
+    transition: all 0.3s ease;
+}
+
+.time-value {
+    font-family: var(--font-secondary);
+    font-size: 5.19vw;
+    font-weight: 400;
+    color: var(--secondary-color);
+    line-height: 5.19vw;
+    letter-spacing: 0;
+}
+
+.time-label {
+    font-family: var(--font-primary);
+    font-size: 5.19vw;
+    font-weight: 400;
+    line-height: 6.3vw;
+    letter-spacing: 0;
+    color: var(--primary-color);
+}
+
+/* Галерея фото */
+.gallery {
+    background: transparent;
+    margin-top: 32.59vw;
+    text-align: center;
+}
+
+.gallery-title {
+    font-family: var(--font-primary);
+    font-size: 8.52vw;
+    line-height: 11.11vw;
+    color: var(--secondary-color);
+}
+
+/* .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27.78vw, 1fr)); 
+    gap: 1.85vw; 
+    margin-top: 5.56vw; 
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.46vw; 
+    aspect-ratio: 3/4;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+} */
+
+/* Карта и локация проведения мероприятия*/
+.location {
+    background: transparent;
+    margin-top: 246.39vw;
+    text-align: center;
+}
+
+.location-title {
+    font-family: var(--font-primary);
+    font-size: 8.52vw;
+    line-height: 11.11vw;
+    color: var(--primary-color);
+    width: 82.96vw;
+    height: 22.13vw;
+    margin-bottom: 6.48vw;
+}
+
+.location-info {
+    font-family: var(--font-primary);
+    font-size: 5.19vw;
+    line-height: 6.3vw;
+    color: var(--primary-color);
+    width: 82.96vw;
+    height: 32.50vw;
+    display: flex;
+    flex-direction: column;
+    gap: 6.3vw;
+}
+
+
+.btn-map {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 9.26vw;
+    width: 66.11vw;
+    height: 9.26vw;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 9.26vw;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.83vw auto auto 7.13vw;
+}
+
+
+.btn-map:hover {
+    background: var(--primary-color);
+    transform: translateY(-0.19vw);
+    box-shadow: 0 0.46vw 1.39vw rgba(0, 0, 0, 0.2);
+}
+
+/* Программа (Timeline) */
+.program {
+    background: transparent;
+    margin-top: 33.33vw;
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+.program-title {
+    font-family: var(--font-primary);
+    font-size: 8.52vw;
+    line-height: 11.11vw;
+    margin-bottom: 9.26vw;
+    width: 82.96vw;
+    height: 10.19vw;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9.44vw;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.time {
+    font-family: var(--font-secondary);
+    font-size: 7.41vw;
+    line-height: 6.3vw;
+    width: 82.96vw;
+    height: 8.33vw;
+}
+
+.event {
+    font-family: var(--font-secondary);
+    font-size: 5.19vw;
+    line-height: 6.3vw;
+    text-transform: uppercase;
+}
+
+.timeline-separator {
+    display: flex;
+    justify-content: center;
+    margin: -0.46vw 0;
+}
+
+.heart-icon {
+    width: 3.98vw;
+    height: 3.98vw;
+    object-fit: contain;
+}
+
+/* Детали */
+.details {
+    background: transparent;
+    margin-top: 34.26vw;
+    text-align: center;
+    color: var(--primary-color);
+    font-family: var(--font-primary);
+}
+
+.details-title {
+    font-size: 8.52vw;
+    line-height: 11.11vw;
+    margin-bottom: 6.48vw;
+    width: 82.96vw;
+    height: 11.02vw;
+}
+
+.details-description {
+    width: 82.96vw;
+    margin-bottom: 13.61vw;
+    font-size: 5.19vw;
+    line-height: 6.3vw;
+}
+
+.details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16.67vw;
+}
+
+.details-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6.48vw;
+    width: 82.96vw;
+}
+
+.details-item-title {
+    font-size: 8.52vw;
+    line-height: 11.11vw;
+    font-weight: normal;
+}
+
+.details-item-text {
+    font-size: 5.19vw;
+    line-height: 6.3vw;
+}
+
+
+/* Чат гостей */
+.chat {
+    background: transparent;
+    margin-top: 33.33vw;
+    text-align: center;
+    font-family: var(--font-primary);
+    color: var(--secondary-color);
+    font-weight: 400;
+}
+
+.chat-title {
+    font-size: 8.52vw;
+    line-height: 11.11vw;
+    width: 82.96vw;
+    height: 11.02vw;
+    margin-bottom: 6.48vw;
+}
+
+.chat-info {
+    font-size: 5.19vw;
+    line-height: 6.3vw;
+    width: 82.96vw;
+    height: 50.37vw;
+    display: flex;
+    flex-direction: column;
+    gap: 6.3vw;
+    margin-bottom: 9.26vw;
+}
+
+
+.btn-connect {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 66.11vw;
+    height: 9.26vw;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 5.19vw;
+    line-height: 6.3vw;
+    font-weight: 400;
+    border-radius: 9.26vw;
+    text-transform: lowercase;
+    text-decoration: none;
+    padding: 0.83vw auto auto 7.13vw;
+}
+
+
+.btn-connect:hover {
+    background: var(--secondary-color);
+    transform: translateY(-0.19vw);
+    box-shadow: 0 0.46vw 1.39vw rgba(0, 0, 0, 0.2);
+}
+
+/* Форма подтверждения присутствия */
+.rsvp {
+    background: transparent;
+    margin-top: 16.67vw;
+    font-family: var(--font-primary);
+    color: var(--secondary-color);
+    font-weight: 400;
+}
+
+.rsvp-title {
+    font-size: 8.52vw;
+    line-height: 11.11vw;
+    width: 82.96vw;
+    height: 22.13vw;
+    margin-bottom: 6.48vw;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.rsvp-form {
+    width: 86.67vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.form-label {
+    font-size: 5.19vw;
+    line-height: 6.3vw;
+    font-weight: 400;
+    display: block;
+    margin-left: 1.85vw;
+    margin-bottom: 2.04vw;
+}
+
+.form-input {
+    width: 86.67vw;
+    height: 9.26vw;
+    background-color: var(--input-color);
+}
+
+.additional-text {
+    font-size: 5.19vw;
+    line-height: 6.3vw;
+    font-weight: 400;
+    margin-left: 1.85vw;
+    margin-bottom: 2.04vw;
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 3.52vw;
+    width: 100%;
+}
+
+.form-group input {
+    width: 100%;
+    height: 9.26vw;
+    padding: 1.48vw 1.85vw;
+    border: 0;
+    border-radius: 0;
+    font-family: var(--font-primary);
+    font-size: 5.19vw;
+    line-height: 6.3vw;
+    font-weight: 400;
+    background-color: var(--input-color);
+    color: var(--secondary-color);
+}
+
+.form-group input::placeholder {
+    color: var(--primary-color);
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 1.48vw 1.85vw;
+    transition: var(--transition);
+    background-color: var(--input-color);
+    width: 100%;
+    height: 8.98vw;
+}
+
+.radio-label:hover {
+    border-color: #ffffff;
+}
+
+.radio-label input[type="radio"] {
+    width: 3.43vw;
+    height: 3.43vw;
+    margin-right: 3.15vw;
+    accent-color: var(--secondary-color);
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.radio-label input[type="radio"]:checked {
+    accent-color: var(--primary-color);
+}
+
+.radio-text {
+    font-size: 5.19vw;
+    line-height: 6.3vw;
+    font-weight: 400;
+    font-family: var(--font-primary);
+}
+
+.btn-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 66.11vw;
+    height: 9.26vw;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-family: var(--font-primary);
+    font-size: 5.19vw;
+    line-height: 6.3vw;
+    font-weight: 400;
+    border-radius: 9.26vw;
+    border: 0;
+    text-transform: lowercase;
+    text-decoration: none;
+    transition: var(--transition);
+    margin-top: 9.26vw;
+}
+
+.btn-submit:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#additional-questions {
+    display: none;
+    width: 100%;
+}
+
+#additional-questions input {
+    width: 100%;
+    height: 9.26vw;
+    padding: 1.48vw 1.85vw;
+    border: 0;
+    border-radius: 0;
+    font-family: var(--font-primary);
+    font-size: 5.19vw;
+    line-height: 6.3vw;
+    font-weight: 400;
+    background-color: var(--input-color);
+    color: var(--secondary-color);
+}
+
+#additional-questions input::placeholder {
+    color: var(--primary-color);
+}
+
+.form-partner {
+    display: block;
+    margin-bottom: 3.52vw;
+}
+
+.form-success {
+    display: none;
+    text-align: center;
+    width: 86.67vw;
+    margin-top: 9.26vw;
+}
+
+.form-success.show {
+    display: block;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}        
+
+.form-success h3 {
+    font-family: var(--font-primary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.form-success p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

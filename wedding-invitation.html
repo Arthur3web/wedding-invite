@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свадебное приглашение</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="wedding-styles.css">
+</head>
+<body>
+
+    <!-- Дата события -->
+    <section class="welcome" id="welcome">
+        <div class="container">
+            <h2 class="section-title welcome-title">Дорогие родные и близкие!</h2>
+            <div class="welcome-message">
+                <p class="welcome-text">Совсем скоро состоится очень<br> важное событие в нашей жизни.<br> День нашей свадьбы!</p>
+                <p class="welcome-text">Мы рады пригласить вас стать свидетелями этого торжества и разделить с нами самые яркие моменты!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Таймер обратного отсчета -->
+    <section class="countdown" id="countdown">
+        <div class="container">
+            <h2 class="section-title countdown-title">До самого важного дня осталось...</h2>
+            
+            <div class="countdown-timer">
+                <div class="time-block">
+                    <div class="time-unit">
+                        <div class="time-value" id="days">0</div>
+                    </div>
+                    <div class="time-label">дней</div>
+                </div>
+
+                <div class="time-block">
+                    <div class="time-unit">
+                        <div class="time-value" id="hours">0</div>
+                    </div>
+                    <div class="time-label">часов</div>
+                </div>
+
+                <div class="time-block">
+                    <div class="time-unit">
+                        <div class="time-value" id="minutes">0</div>
+                    </div>
+                    <div class="time-label">минут</div>
+                </div>
+
+                <div class="time-block">
+                    <div class="time-unit">
+                        <div class="time-value" id="seconds">0</div>
+                    </div>
+                    <div class="time-label">секунд</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея фотографий -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title gallery-title">История нашей любви</h2>
+            <!-- <div class="gallery-grid">
+                <div class="gallery-item" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=800&fit=crop" alt="Фото 1">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600&h=800&fit=crop" alt="Фото 2">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&h=800&fit=crop" alt="Фото 3">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&h=800&fit=crop" alt="Фото 4">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=600&h=800&fit=crop" alt="Фото 5">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=600&h=800&fit=crop" alt="Фото 6">
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Карта и локация -->
+    <section class="location" id="location">
+        <div class="container">
+            <h2 class="section-title location-title">Место проведения</h2>
+            <div class="location-info">
+                <p>Наш банкет будет проходить<br> в ресторане "Афина"</p>
+                <p>Адрес:<br> Прохладный, ул. Пролетарская, 48</p>
+
+            </div>
+            <a href="https://maps.google.com" target="_blank" class="btn-map">Посмотреть на карте</a>
+        </div>
+    </section>
+
+    <!-- Программа -->
+    <section class="program" id="program">
+        <div class="container">
+            <h2 class="section-title program-title">Программа</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">15:00</div>
+                    <div class="event">Церемония<br> бракосочетания</div>
+                </div>
+
+                <div class="timeline-separator">
+                    <img src="./images/heart.png" alt="" class="heart-icon">
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time">16:30</div>
+                    <div class="event">Сбор гостей</div>
+                </div>
+
+                <div class="timeline-separator">
+                    <img src="./images/heart.png" alt="" class="heart-icon">
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time">17:00</div>
+                    <div class="event">Начало банкета</div>
+                </div>
+
+                <div class="timeline-separator">
+                    <img src="./images/heart.png" alt="" class="heart-icon">
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time">21:00</div>
+                    <div class="event">Свадебный торт</div>
+                </div>
+
+                <div class="timeline-separator">
+                    <img src="./images/heart.png" alt="" class="heart-icon">
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time">23:00</div>
+                    <div class="event">Завершение<br> торжества</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Детали -->
+    <section class="details" id="details">
+        <div class="container">
+            <h2 class="section-title details-title">Детали</h2>
+            <p class="details-description">
+                Мы догадываемся, что после получения приглашения у вас может появиться<br> ряд вопросов:
+            </p>
+            <div class="details-list">
+
+                <div class="details-item">
+                    <h2 class="details-item-title">Сюрпризы</h2>
+                    <p class="details-item-text">
+                        Возьмите с собой отличное настроение! Приветствуются ваши поздравления,
+                        активное участие во всех интерактивах!
+                    </p>
+                </div>
+
+                <div class="details-item">
+                    <h2 class="details-item-title">Что дарить?</h2>
+                    <p class="details-item-text">
+                        В качестве подарка будем рады<br> вкладу в бюджет нашей семьи.<br>
+                        Он поможет воплотить нашу мечту в реальность!
+                    </p>
+                </div>
+
+                <div class="details-item">
+                    <h2 class="details-item-title">Дресс-код</h2>
+                    <p class="details-item-text">
+                        Милые дамы, просим избегать белого<br> и молочного оттенка в ваших нарядах!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Чат -->
+    <section class="chat" id="chat">
+        <div class="container">
+            <h2 class="section-title chat-title">Чат гостей</h2>
+            <div class="chat-info">
+                <p>Дорогие гости, мы создали группу<br> в Telegram с новостями события,<br> куда можно будет отправить все фото<br> и видео со дня нашей свадьбы.</p>
+                <p>Позже там появится ссылка<br> с запечатленными кадрами<br> от нашего фотографа.</p>
+            </div>
+            <a href="https://t.me/+aWlvVeaBRO9kNzdi" target="_blank" class="btn-connect">Присоединиться к чату</a>
+        </div>
+    </section>
+
+    <!-- Форма RSVP -->
+    <section class="rsvp" id="rsvp"   >
+        <div class="container">
+            <h2 class="section-title rsvp-title">Подтвердить присутствие</h2>
+            <form class="rsvp-form" id="rsvpForm" 
+                  action="https://docs.google.com/forms/d/e/1FAIpQLSd-fGptN5QNwZfzYSaPaRYJL6eWbYuYw0ML52mTJ1C57SAH3g/formResponse"
+                  method="POST"
+                  target="hidden_iframe"
+                  onsubmit="showSuccess()">
+
+                <!-- Имя -->
+                <div class="form-group">
+                    <label for="name" class="form-label">Ваше имя и фамилия</label>
+                    <input type="text" id="name" name="entry.1065046570" required placeholder="Имя Фамилия">
+                </div>
+
+                <!-- Присутствие -->
+                <div class="form-group">
+                    <label class="form-label">Будете ли присутствовать?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="entry.1166974658" value="Да, обязательно буду!" required>
+                            <span class="radio-text">Да, обязательно буду!</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="entry.1166974658" value="К сожалению, не смогу">
+                            <span class="radio-text">К сожалению, не смогу</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Дополнительные вопросы -->
+                <div class="form-group" id="additional-questions">
+                    <label class="form-partner">
+                        <span class="additional-text">Если будете с супругом/супругой:</span>
+                        <input type="text" name="entry.1506500631" placeholder="Имя Фамилия">
+                    </label>
+                    <label>
+                        <span class="additional-text">Если будете с ребенком/детьми:</span>
+                        <input type="text" name="entry.1126931994" placeholder="Имена детей (через запятую)">
+                    </label>
+                </div>
+
+                <!-- Скрытые поля Google Forms (важно!) -->
+                <input type="hidden" name="fvv" value="1">
+                <input type="hidden" name="draftResponse" value='[null,null,"-1"]'>
+                <input type="hidden" name="pageHistory" value="0">
+                <input type="hidden" name="fbzx" value="-1">
+
+
+                <!-- Кнопка всегда внизу -->
+                <button type="submit" class="btn-submit">Отправить ответ</button>
+            </form>
+
+            <!-- Скрытый iframe для отправки формы без перезагрузки страницы -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+
+            <!-- Сообщение об успехе -->
+            <div class="form-success" id="formSuccess">
+                <div class="success-icon">✓</div>
+                <h3>Спасибо за ответ!</h3>
+                <p>Мы получили ваше сообщение и ценим,<br> что вы нашли время откликнуться.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="wedding-script.js"></script>
+</body>
+</html>
