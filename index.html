@@ -96,7 +96,7 @@
                 <p>Адрес:<br> Прохладный, ул. Пролетарская, 48</p>
 
             </div>
-            <a href="https://maps.google.com" target="_blank" class="btn-map">Посмотреть на карте</a>
+            <a href="https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=Прохладный,+ул.+Пролетарская,+48,+Россия" target="_blank" class="btn-map">Посмотреть на карте</a>
         </div>
     </section>
 
@@ -219,10 +219,12 @@
                     <div class="radio-group">
                         <label class="radio-label">
                             <input type="radio" name="entry.1166974658" value="Да, обязательно буду!" required>
+                            <span class="custom-radio"></span>
                             <span class="radio-text">Да, обязательно буду!</span>
                         </label>
                         <label class="radio-label">
                             <input type="radio" name="entry.1166974658" value="К сожалению, не смогу">
+                            <span class="custom-radio"></span>
                             <span class="radio-text">К сожалению, не смогу</span>
                         </label>
                     </div>
@@ -257,7 +259,9 @@
 
             <!-- Сообщение об успехе -->
             <div class="form-success" id="formSuccess">
-                <div class="success-icon">✓</div>
+                 <div class="success-icon">
+                    <img src="./images/heart.png" alt="" class="rsvp-heart">
+                </div>
                 <h3>Спасибо за ответ!</h3>
                 <p>Мы получили ваше сообщение и ценим,<br> что вы нашли время откликнуться.</p>
             </div>

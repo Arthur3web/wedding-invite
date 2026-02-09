@@ -243,7 +243,6 @@ body {
     border-radius: 9.26vw;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 0.83vw auto auto 7.13vw;
 }
 
 
@@ -302,7 +301,6 @@ body {
 .timeline-separator {
     display: flex;
     justify-content: center;
-    margin: -0.46vw 0;
 }
 
 .heart-icon {
@@ -398,13 +396,10 @@ body {
     height: 9.26vw;
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    font-size: 5.19vw;
-    line-height: 6.3vw;
     font-weight: 400;
     border-radius: 9.26vw;
-    text-transform: lowercase;
+    text-transform: uppercase;
     text-decoration: none;
-    padding: 0.83vw auto auto 7.13vw;
 }
 
 
@@ -504,24 +499,36 @@ body {
     background-color: var(--input-color);
     width: 100%;
     height: 8.98vw;
-}
-
-.radio-label:hover {
-    border-color: #ffffff;
+    gap: 3.15vw;
 }
 
 .radio-label input[type="radio"] {
-    width: 3.43vw;
-    height: 3.43vw;
-    margin-right: 3.15vw;
-    accent-color: var(--secondary-color);
-    transform: scale(1.2);
-    cursor: pointer;
-    transition: var(--transition);
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
-.radio-label input[type="radio"]:checked {
-    accent-color: var(--primary-color);
+.radio-label .custom-radio {
+    width: 3.43vw;
+    height: 3.43vw;
+    border-radius: 50%;
+    border: 0.5vw solid var(--primary-color);
+    background-color: var(--secondary-color);
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.radio-label:hover input[type="radio"]:not(:checked) + .custom-radio {
+    border-color: var(--secondary-color);
+}
+
+.radio-label input[type="radio"]:checked + .custom-radio {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.radio-label input[type="radio"]:checked + .custom-radio + .radio-text {
+    color: var(--secondary-color);
 }
 
 .radio-text {
@@ -529,6 +536,7 @@ body {
     line-height: 6.3vw;
     font-weight: 400;
     font-family: var(--font-primary);
+    color: var(--primary-color);
 }
 
 .btn-submit {
@@ -540,12 +548,10 @@ body {
     background-color: var(--secondary-color);
     color: var(--primary-color);
     font-family: var(--font-primary);
-    font-size: 5.19vw;
-    line-height: 6.3vw;
     font-weight: 400;
     border-radius: 9.26vw;
     border: 0;
-    text-transform: lowercase;
+    text-transform: uppercase;
     text-decoration: none;
     transition: var(--transition);
     margin-top: 9.26vw;
@@ -591,33 +597,28 @@ body {
 }
 
 .form-success.show {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     animation: fadeInUp 0.5s ease-out;
 }
 
-.success-icon {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 1.5rem;
-    background: var(--secondary-color);
-    color: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-}        
+.rsvp-heart {
+    width: 20vw;
+    height: 20vw;
+    object-fit: contain;
+    margin-bottom: 3.52vw;
+}
+     
 
 .form-success h3 {
-    font-family: var(--font-primary);
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--secondary-color);
+    font-size: 6.3vw;
+    margin-bottom: 3.52vw;
 }
 
 .form-success p {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1.1rem;
+    font-size: 5.19vw;
 }
 
 @keyframes fadeInUp {
