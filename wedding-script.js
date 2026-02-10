@@ -38,7 +38,7 @@ function initCountdown() {
 
 // Обработка формы подтверждения
 const scriptURL =
-  "https://script.google.com/macros/s/AKfycbzUn6lxm_3c1OKTe5ZUVGkuKYwc0V_qT3LPA4DEl1tbvhGiq1kPTwQGYIDBptt5nrJ7/exec";
+  "https://script.google.com/macros/s/AKfycbzb_orTVVkoHXqq5B2UdQpUAKqu1lZaIvCWWz1JbLS1QrGZ3_61X7FrqcwVdrcZGNx5/exec";
 
 function initRSVPForm() {
   const form = document.getElementById("rsvpForm");
@@ -85,26 +85,54 @@ function initRSVPForm() {
     const attendance = form.querySelector(
       'input[name="attendance"]:checked',
     )?.value;
+
     if (!name || !attendance) {
       alert("Пожалуйста, заполните обязательные поля");
       return;
     }
 
+    const loading = document.getElementById("formLoading");
+    loading.classList.add("active");
+
+    const submitBtn = form.querySelector(".btn-submit");
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Отправляем…";
+
     const partner = form.querySelector('input[name="partner"]').value.trim();
     const children = form.querySelector('input[name="children"]').value.trim();
+
     const data = { name, attendance, partner, children };
 
     try {
-      await fetch(scriptURL, {
+      const response = await fetch(scriptURL, {
         method: "POST",
         body: new URLSearchParams(data),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
       });
-      form.style.display = "none";
-      formSuccess.style.display = "block";
-      formSuccess.scrollIntoView({ behavior: "smooth", block: "center" });
+
+      if (!response.ok) throw new Error("Network response was not ok");
+
+      const result = await response.json();
+
+      if (result.status === "success") {
+        form.style.display = "none";
+        document.getElementById("formSuccess").style.display = "block";
+        document
+          .getElementById("formSuccess")
+          .scrollIntoView({ behavior: "smooth", block: "center" });
+      } else {
+        throw new Error(result.message || "Ошибка сервера");
+      }
     } catch (err) {
       console.error("Ошибка отправки:", err);
-      alert("Произошла ошибка. Попробуйте позже.");
+      alert(
+        "Не удалось отправить ответ. Проверьте соединение и попробуйте снова.",
+      );
+    } finally {
+      loading.classList.remove("active");
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
     }
   });
 }
@@ -148,43 +176,6 @@ function initScrollAnimations() {
   document.head.appendChild(style);
 }
 
-// Маска для телефона
-function initPhoneMask() {
-  const phoneInput = document.getElementById("phone");
-
-  phoneInput.addEventListener("input", function (e) {
-    let value = e.target.value.replace(/\D/g, "");
-
-    if (value.length > 0) {
-      if (value[0] === "7" || value[0] === "8") {
-        value = "7" + value.substring(1);
-      } else {
-        value = "7" + value;
-      }
-    }
-
-    let formattedValue = "";
-
-    if (value.length > 0) {
-      formattedValue = "+7";
-      if (value.length > 1) {
-        formattedValue += " (" + value.substring(1, 4);
-      }
-      if (value.length >= 4) {
-        formattedValue += ") " + value.substring(4, 7);
-      }
-      if (value.length >= 7) {
-        formattedValue += "-" + value.substring(7, 9);
-      }
-      if (value.length >= 9) {
-        formattedValue += "-" + value.substring(9, 11);
-      }
-    }
-
-    e.target.value = formattedValue;
-  });
-}
-
 // Lazy loading для изображений
 function initLazyLoading() {
   const images = document.querySelectorAll(".gallery-item img");
@@ -217,7 +208,6 @@ document.addEventListener("DOMContentLoaded", function () {
     initCountdown();
     initRSVPForm();
     initScrollAnimations();
-    initPhoneMask();
     initLazyLoading();
 
     // Предзагрузка изображений для плавности
