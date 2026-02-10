@@ -486,49 +486,60 @@ body {
 .radio-group {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
-    margin-top: 0.5rem;
+    gap: 2.5vw;
 }
 
 .radio-label {
     display: flex;
     align-items: center;
-    cursor: pointer;
-    padding: 1.48vw 1.85vw;
-    transition: var(--transition);
-    background-color: var(--input-color);
+    gap: 3vw;
     width: 100%;
-    height: 8.98vw;
-    gap: 3.15vw;
+    height: 9.26vw; 
+    padding: 0 3vw;
+    background-color: var(--input-color);
+    cursor: pointer;
+    position: relative;
 }
 
-.radio-label input[type="radio"] {
+.radio-label input {
     position: absolute;
     opacity: 0;
     pointer-events: none;
 }
 
-.radio-label .custom-radio {
-    width: 3.43vw;
-    height: 3.43vw;
+.radio-label::before {
+    content: "";
+    width: 4.5vw;
+    height: 4.5vw;
     border-radius: 50%;
-    border: 0.5vw solid var(--primary-color);
-    background-color: var(--secondary-color);
-    transition: var(--transition);
+    background: var(--secondary-color);
     flex-shrink: 0;
 }
 
-.radio-label:hover input[type="radio"]:not(:checked) + .custom-radio {
-    border-color: var(--secondary-color);
+.radio-label::after {
+    content: "";
+    width: 2.2vw;
+    height: 2.2vw;
+    border-radius: 50%;
+    background: var(--primary-color);
+    position: absolute;
+    left: 5.25vw;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: var(--transition);
 }
 
-.radio-label input[type="radio"]:checked + .custom-radio {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
+.radio-label:has(input:checked)::after {
+    opacity: 0;
 }
 
-.radio-label input[type="radio"]:checked + .custom-radio + .radio-text {
+.radio-label:has(input:checked) .radio-text {
     color: var(--secondary-color);
+}
+
+.radio-label:hover::after {
+    background-color: var(--secondary-color);
 }
 
 .radio-text {
@@ -609,9 +620,8 @@ body {
     height: 20vw;
     object-fit: contain;
     margin-bottom: 3.52vw;
-}
+}        
      
-
 .form-success h3 {
     font-size: 6.3vw;
     margin-bottom: 3.52vw;
