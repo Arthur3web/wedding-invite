@@ -159,52 +159,51 @@ body {
     color: var(--secondary-color);
 }
 
-/* .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(27.78vw, 1fr)); 
-    gap: 1.85vw; 
-    margin-top: 5.56vw; 
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.85vw;
+  justify-content: center; 
+  padding: 7.50vw 8.52vw 16.67vw 8.52vw;
+  position: relative;
 }
 
+.left-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.85vw;
+}
+
+.left-column { flex: 0 0 auto; } /* ширина определяется карточками */
+.right-column { flex: 0 0 auto; }
+
+/* Карточки */
 .gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 0.46vw; 
-    aspect-ratio: 3/4;
-    cursor: pointer;
+  border-radius: 1.11vw;
+  overflow: hidden;
 }
 
 .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
+/* Размеры карточек в vw */
+.card-small         { width: 32.04vw; height: 42.59vw; }
+.card-small2        { width: 32.04vw; height: 31.48vw; }
+.card-large         { width: 49.07vw; height: 74.07vw; }
+.card-full          { width: 82.96vw; height: 53.70vw; }
+.card-medium-left   { width: 49.07vw; height: 72.22vw; }
+.card-medium-right  { width: 32.04vw; height: 44.44vw; }
 
-.gallery-item::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover::after {
-    opacity: 1;
-} */
 
 /* Карта и локация проведения мероприятия*/
 .location {
     background: transparent;
-    margin-top: 246.39vw;
+    margin-top: 16.67vw;
     text-align: center;
 }
 
@@ -690,13 +689,6 @@ body {
         transform: translateY(0);
     }
 }
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.3); }
-  100% { transform: scale(1); }
-}
-
 
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
