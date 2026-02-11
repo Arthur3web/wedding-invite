@@ -607,9 +607,8 @@ body {
 }
 
 .loading-heart {
-  filter: hue-rotate(100deg) saturate(5) brightness(1.2); 
-  width: 40px;
-  height: 40px;
+  filter: brightness(0) saturate(100%) invert(16%) sepia(99%) saturate(7404%) hue-rotate(4deg) brightness(95%) contrast(118%);
+  height: 50px;
   animation: pulse 1.8s infinite ease-in-out;
   margin-bottom: 20px;
 }
