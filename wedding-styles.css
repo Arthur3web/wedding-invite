@@ -165,7 +165,6 @@ body {
   gap: 1.85vw;
   justify-content: center; 
   padding: 7.50vw 8.52vw 16.67vw 8.52vw;
-  position: relative;
 }
 
 .left-column,
@@ -182,6 +181,8 @@ body {
 .gallery-item {
   border-radius: 1.11vw;
   overflow: hidden;
+  position: relative;
+  background: var(--secondary-color);
 }
 
 .gallery-item img {
@@ -194,7 +195,7 @@ body {
 /* Размеры карточек в vw */
 .card-small         { width: 32.04vw; height: 42.59vw; }
 .card-small2        { width: 32.04vw; height: 31.48vw; }
-.card-large         { width: 49.07vw; height: 74.07vw; }
+.card-large         { width: 49.07vw; height: 75.93vw; }
 .card-full          { width: 82.96vw; height: 53.70vw; }
 .card-medium-left   { width: 49.07vw; height: 72.22vw; }
 .card-medium-right  { width: 32.04vw; height: 44.44vw; }
