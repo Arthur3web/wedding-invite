@@ -12,10 +12,14 @@ function initCountdown() {
     const now = Date.now();
     const distance = weddingDate - now;
 
-    if (distance < 0) {
+    if (distance <= 0) {
       clearInterval(interval);
-      document.querySelector(".countdown-timer").innerHTML =
-        '<h2 style="font-family: var(--font-primary); font-size: 8.52vw; color: var(--primary-color);">Сегодня наш день!</h2>';
+
+      daysEl.textContent = 0;
+      hoursEl.textContent = 0;
+      minutesEl.textContent = 0;
+      secondsEl.textContent = 0;
+
       return;
     }
 
