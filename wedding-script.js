@@ -217,11 +217,22 @@ function initLightbox() {
 
   // Свайп на мобильных
   let touchStartX = 0;
+  let isMultiTouch = false;
+
   lightbox.addEventListener("touchstart", (e) => {
+    if (e.touches.length > 1) {
+      isMultiTouch = true; // это pinch
+      return;
+    }
+    isMultiTouch = false;
     touchStartX = e.changedTouches[0].clientX;
   });
+
   lightbox.addEventListener("touchend", (e) => {
+    if (isMultiTouch) return; // если был зум — не листаем
+
     const diff = e.changedTouches[0].clientX - touchStartX;
+
     if (Math.abs(diff) > 50) {
       if (diff > 0) showPrev();
       else showNext();
