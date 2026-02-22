@@ -179,7 +179,6 @@ body {
 
 /* Карточки */
 .gallery-item {
-  border-radius: 1.11vw;
   overflow: hidden;
   position: relative;
   background: var(--secondary-color);
