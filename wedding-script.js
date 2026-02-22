@@ -36,8 +36,9 @@ function initCountdown() {
     secondsEl.textContent = seconds;
   }
 
+  let interval;
   updateCountdown();
-  const interval = setInterval(updateCountdown, 1000);
+  interval = setInterval(updateCountdown, 1000);
 }
 
 // RSVP форма
@@ -110,7 +111,7 @@ function initRSVPForm() {
       if (result.status === "success") {
         form.style.display = "none";
         const success = document.getElementById("formSuccess");
-        success.style.display = "block";
+        success.classList.add("show");
         success.scrollIntoView({ behavior: "smooth", block: "center" });
       } else throw new Error(result.message || "Ошибка сервера");
     } catch (err) {
@@ -165,6 +166,69 @@ function initImageLoading() {
   });
 }
 
+// Лайтбокс для галереи
+function initLightbox() {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const images = Array.from(document.querySelectorAll(".gallery-item img"));
+  let currentIndex = 0;
+
+  function open(index) {
+    currentIndex = index;
+    lightboxImg.src = images[currentIndex].src;
+    lightboxImg.alt = images[currentIndex].alt;
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+  }
+
+  function close() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+    lightboxImg.alt = images[currentIndex].alt;
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+    lightboxImg.alt = images[currentIndex].alt;
+  }
+
+  images.forEach((img, i) => {
+    img.style.cursor = "pointer";
+    img.addEventListener("click", () => open(i));
+  });
+
+  document.getElementById("lightboxClose").addEventListener("click", close);
+  document.getElementById("lightboxPrev").addEventListener("click", showPrev);
+  document.getElementById("lightboxNext").addEventListener("click", showNext);
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("active")) return;
+    if (e.key === "ArrowLeft") showPrev();
+    if (e.key === "ArrowRight") showNext();
+  });
+
+  // Свайп на мобильных
+  let touchStartX = 0;
+  lightbox.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].clientX;
+  });
+  lightbox.addEventListener("touchend", (e) => {
+    const diff = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) showPrev();
+      else showNext();
+    }
+  });
+}
+
 // Инициализация всех функций
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Свадебное приглашение загружено!");
@@ -173,6 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initRSVPForm();
     initScrollAnimations();
     initImageLoading();
+    initLightbox();
   } catch (err) {
     console.error("Ошибка при инициализации:", err);
   }
