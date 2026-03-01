@@ -499,6 +499,8 @@ body {
     background-color: var(--input-color);
     cursor: pointer;
     position: relative;
+    border: 0.19vw solid transparent;
+    transition: var(--transition);
 }
 
 .radio-label input {
@@ -513,7 +515,10 @@ body {
     height: 4.5vw;
     border-radius: 50%;
     background: var(--secondary-color);
+    border: 0.35vw solid var(--primary-color);
     flex-shrink: 0;
+    box-sizing: border-box;
+    transition: var(--transition);
 }
 
 .radio-label::after {
@@ -525,21 +530,17 @@ body {
     position: absolute;
     left: 5.25vw;
     top: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 1;
+    transform: translate(-50%, -50%) scale(0);
     transition: var(--transition);
 }
 
+.radio-label input:checked::after,
 .radio-label:has(input:checked)::after {
-    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .radio-label:has(input:checked) .radio-text {
-    color: var(--secondary-color);
-}
-
-.radio-label:hover::after {
-    background-color: var(--secondary-color);
+    color: var(--secondary-color)
 }
 
 .radio-text {
@@ -548,6 +549,7 @@ body {
     font-weight: 400;
     font-family: var(--font-primary);
     color: var(--primary-color);
+    transition: var(--transition);
 }
 
 .btn-submit {
